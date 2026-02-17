@@ -180,6 +180,15 @@
     </div>
 
     <script>
+       function createHeart() {
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.innerHTML = "❤️";
+        h.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 6000);
+      }
+      setInterval(createHeart, 500);
       const message =
        "I love you, my love, Nixon ❤️. Words can’t express how deeply I love you. You mean everything to me, and my love for you has no limits.";
       let index = 0;
@@ -213,6 +222,7 @@
     </script>
   </body>
 </html>
+
 
 
 
