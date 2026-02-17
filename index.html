@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday ❤️</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Background video */
+      .bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: -1;
+      }
+
+      /* Center content */
+      .center {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+        color: #ff4e50;
+      }
+
+      h2 {
+        margin-top: 8px;
+        font-size: 1.1rem;
+      }
+
+      /* Gift */
+      .gift-box {
+        margin-top: 30px;
+        width: 110px;
+        height: 110px;
+        background: #ff4e50;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        animation: bounce 2s infinite;
+      }
+
+      .gift-lid {
+        position: absolute;
+        top: -22px;
+        left: 0;
+        width: 100%;
+        height: 22px;
+        background: #e63b3b;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .gift-body {
+        width: 100%;
+        height: 100%;
+      }
+
+      .gift-text {
+        margin-top: 10px;
+        display: block;
+      }
+
+      .gift-box.open {
+        animation: none;
+        transform: scale(1.05);
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Love letter */
+      .love-letter {
+        margin-top: 25px;
+        width: 80%;
+        max-width: 420px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
+        padding: 18px;
+        border-radius: 12px;
+        display: none;
+      }
+
+      .love-letter.show {
+        display: block;
+      }
+
+      /* Button */
+      .next-btn {
+        margin-top: 25px;
+        padding: 10px 22px;
+        background: #ff4e50;
+        color: white;
+        text-decoration: none;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Background Video -->
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="media/background.mp4" type="video/mp4" />
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="center">
+      <h1>Happy Birthday Nixon My Love 🎂</h1>
+      <h2>From your forever love, Sheji Nishoni ❤️</h2>
+
+      <!-- Gift -->
+      <div class="gift-box" onclick="openGiftBox()">
+        <div class="gift-lid"></div>
+        <div class="gift-body"></div>
+        <span class="gift-text">🎁 Gift (Click to Open)</span>
+      </div>
+
+      <!-- Letter -->
+      <div class="love-letter" id="loveLetter">
+        <p id="letterText"></p>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+
+      <a href="promise.html" class="next-btn">promise ❤️</a>
+    </div>
+
+    <script>
+      const message =
+        "I love you my love Nixon❤️..Words can’t express how much love I have for you. I love you so deeply. You are my everything.";
+      let index = 0;
+
+      function openGiftBox() {
+        const box = document.querySelector(".gift-box");
+        const letter = document.getElementById("loveLetter");
+        const text = document.getElementById("letterText");
+
+        box.classList.add("open");
+
+        // RESET
+        index = 0;
+        text.innerHTML = "";
+
+        // SHOW LETTER FIRST
+        letter.classList.add("show");
+
+        // START TYPING AFTER VISIBLE
+        setTimeout(typeLetter, 300);
+      }
+
+      function typeLetter() {
+        const text = document.getElementById("letterText");
+        if (index < message.length) {
+          text.innerHTML += message.charAt(index);
+          index++;
+          setTimeout(typeLetter, 80);
+        }
+      }
+    </script>
+  </body>
+</html>
