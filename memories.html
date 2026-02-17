@@ -154,16 +154,7 @@
           height: 420px;
         }
       }
-      /* Background video fix */
-      .bg-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        z-index: -2;
-      }
+     
 
       /* Dark overlay (optional but recommended) */
       .overlay {
@@ -187,6 +178,7 @@
   </head>
 
   <body>
+     <div class="bg-image"></div>
     <!-- <video class="bg-video" autoplay muted loop playsinline>
       <source src="media/background.mp4" type="video/mp4" />
     </video>
@@ -301,4 +293,5 @@
     </script>
   </body>
 </html>
+
 
