@@ -126,6 +126,15 @@
     </div>
     <a href="letter.html" class="next-btn">Letter 💖</a>
     <script>
+       function createHeart() {
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.innerHTML = "❤️";
+        h.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 6000);
+      }
+      setInterval(createHeart, 500);
       const videos = document.querySelectorAll(".gallery video");
       let current = 0;
 
@@ -150,6 +159,7 @@
     </script>
   </body>
 </html>
+
 
 
 
